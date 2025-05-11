@@ -15,7 +15,7 @@ def should_respond(chat_history: str) -> bool:
         try:
             name_and_msg = last_line.split('2025]')[-1].strip()
             name = name_and_msg.split(':')[0].strip()
-            return name.startswith("Jiya")
+            return name.startswith("")#Enter the name of user to reply
         except Exception:
             return False
     
@@ -44,15 +44,15 @@ while True:
 # I've used openrouter's free available llama model, you can use any depending upon what type of response you want.
     client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key="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", # Replace with your Api keys
+    api_key="API Key", # Replace with your Api keys
     )
 
     if should_respond(chat_history):
         completion = client.chat.completions.create(
-            model="meta-llama/Llama-3.3-70B-Instruct",
+            model="meta-llama/Llama-3.3-70B-Instruct", # You can use any model depending upon type of response you want.
             messages=[
                 {
-                    "role": "You are a person named Aaditya who speakes english. he is a student. You reply to message in short. Use the chat history just to get the context. use english",
+                    "role": "You are a person named Aaditya who speakes english. He is a stuent.",
                     "content": str({chat_history})
                 }
             ],
