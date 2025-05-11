@@ -15,7 +15,7 @@ def should_respond(chat_history: str) -> bool:
         try:
             name_and_msg = last_line.split('2025]')[-1].strip()
             name = name_and_msg.split(':')[0].strip()
-            return name.startswith("")#Enter the name of user to reply
+            return name.startswith("") # Enter the name of user to reply
         except Exception:
             return False
     
